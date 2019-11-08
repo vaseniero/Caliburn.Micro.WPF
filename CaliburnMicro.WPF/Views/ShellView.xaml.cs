@@ -23,5 +23,10 @@ namespace CaliburnMicro.WPF.Views
         {
             InitializeComponent();
         }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Hello { firstNameText.Text }");
+        }
     }
 }
