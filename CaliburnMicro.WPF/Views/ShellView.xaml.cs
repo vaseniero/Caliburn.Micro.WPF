@@ -19,14 +19,36 @@ namespace CaliburnMicro.WPF.Views
     /// </summary>
     public partial class ShellView : Window
     {
+        public List<Person> people = new List<Person>();
+       
         public ShellView()
         {
             InitializeComponent();
+
+            people.Add(new Person { FirstName = "Tim", LastName = "Corey" });
+            people.Add(new Person { FirstName = "Joe", LastName = "Smith" });
+            people.Add(new Person { FirstName = "Sue", LastName = "Storm" });
+            people.Add(new Person { FirstName = "Vic", LastName = "Sante" });
+
+            myComboBox.ItemsSource = people;
         }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show($"Hello { firstNameText.Text }");
+        }
+    }
+
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return $"{ FirstName } { LastName }";
+            }
         }
     }
 }
